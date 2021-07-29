@@ -1,0 +1,17 @@
+curl -so /etc/elasticsearch/elasticsearch.yml https://packages.wazuh.com/resources/4.1/open-distro/elasticsearch/7.x/elasticsearch_all_in_one.yml
+
+curl -so /usr/share/elasticsearch/plugins/opendistro_security/securityconfig/roles.yml https://packages.wazuh.com/resources/4.1/open-distro/elasticsearch/roles/roles.yml
+curl -so /usr/share/elasticsearch/plugins/opendistro_security/securityconfig/roles_mapping.yml https://packages.wazuh.com/resources/4.1/open-distro/elasticsearch/roles/roles_mapping.yml
+curl -so /usr/share/elasticsearch/plugins/opendistro_security/securityconfig/internal_users.yml https://packages.wazuh.com/resources/4.1/open-distro/elasticsearch/roles/internal_users.yml
+
+rm /etc/elasticsearch/esnode-key.pem /etc/elasticsearch/esnode.pem /etc/elasticsearch/kirk-key.pem /etc/elasticsearch/kirk.pem /etc/elasticsearch/root-ca.pem -f
+
+curl -so ~/wazuh-cert-tool.sh https://packages.wazuh.com/resources/4.1/open-distro/tools/certificate-utility/wazuh-cert-tool.sh
+curl -so ~/instances.yml https://packages.wazuh.com/resources/4.1/open-distro/tools/certificate-utility/instances_aio.yml
+
+bash ~/wazuh-cert-tool.sh
+
+mkdir /etc/elasticsearch/certs/
+mv ~/certs/elasticsearch* /etc/elasticsearch/certs/
+mv ~/certs/admin* /etc/elasticsearch/certs/
+cp ~/certs/root-ca* /etc/elasticsearch/certs/
